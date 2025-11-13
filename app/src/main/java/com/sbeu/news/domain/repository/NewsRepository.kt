@@ -1,5 +1,6 @@
 package com.sbeu.news.domain.repository
 
+import com.sbeu.news.domain.entity.Article
 import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
@@ -14,7 +15,7 @@ interface NewsRepository {
 
     suspend fun updateArticlesForAllSubscriptions()
 
-    fun getArticlesByTopics(topics: List<String>): Flow<List<String>>
+    fun getArticlesByTopics(topics: List<String>): Flow<List<Article>>
 
     suspend fun clearAllArticles(topics: List<String>)
 }

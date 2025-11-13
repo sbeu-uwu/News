@@ -5,6 +5,9 @@ import androidx.room.Room
 import com.sbeu.news.data.local.NewsDao
 import com.sbeu.news.data.local.NewsDatabase
 import com.sbeu.news.data.remote.NewsApiService
+import com.sbeu.news.data.repository.NewsRepositoryImpl
+import com.sbeu.news.domain.repository.NewsRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +16,6 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Converter
-import retrofit2.OptionalConverterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
@@ -22,6 +24,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 interface DataModule {
+
+    @Singleton
+    @Binds
+    fun bindNewsRepository(
+        impl: NewsRepositoryImpl
+    ): NewsRepository
 
     companion object {
 
