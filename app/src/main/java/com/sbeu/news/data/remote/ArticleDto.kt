@@ -8,7 +8,7 @@ data class ArticleDto(
     @SerialName("author")
     val author: String? = "",
     @SerialName("description")
-    val description: String? = "",
+    val description: String = "",
     @SerialName("publishedAt")
     val publishedAt: String = "",
     @SerialName("source")
