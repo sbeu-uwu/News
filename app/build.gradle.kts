@@ -58,8 +58,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.hilt.navigation.fragment)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.kotlinx.serialization.json)
@@ -67,7 +67,7 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     implementation(libs.retrofit)
     implementation(libs.converter.kotlinx.serialization)
-
+    implementation(libs.androidx.material.icons.extended)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
