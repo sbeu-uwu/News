@@ -68,7 +68,8 @@ class NewsRepositoryImpl @Inject constructor(
         newsDao.deleteSubscription(SubscriptionDbModel(topic))
     }
 
-    override suspend fun updateArticlesForAllSubscriptions() {
+    override suspend fun updateArticlesForAllSubscriptions(): List<String> {
+        val updatedTopics = mutableListOf<String>()
         val subscriptions = newsDao.getAllSubscriptions().first()
         coroutineScope {
             subscriptions.forEach {
@@ -77,6 +78,7 @@ class NewsRepositoryImpl @Inject constructor(
                 }
             }
         }
+        return updatedTopics
     }
 
     override fun getArticlesByTopics(topics: List<String>): Flow<List<Article>> {
