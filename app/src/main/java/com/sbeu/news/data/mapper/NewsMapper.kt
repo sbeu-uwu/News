@@ -3,6 +3,7 @@ package com.sbeu.news.data.mapper
 import com.sbeu.news.data.local.ArticleDbModel
 import com.sbeu.news.data.remote.NewsResponseDto
 import com.sbeu.news.domain.entity.Article
+import com.sbeu.news.domain.entity.Interval
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -18,6 +19,10 @@ fun NewsResponseDto.toDbModels(topic: String): List<ArticleDbModel> {
             publishedAt = it.publishedAt.toTimeStamp(),
         )
     }
+}
+
+fun Int.toInterval(): Interval {
+    return Interval.entries.first { it.minutes == this }
 }
 
 fun List<ArticleDbModel>.toEntities(): List<Article> {
