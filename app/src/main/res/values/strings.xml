@@ -14,4 +14,7 @@
     <string name="open_full_article">Open full article %1$s</string>
     <string name="articles">Articles (%1$d)</string>
     <string name="no_articles_for_selected_subscriptions">No articles for selected subscriptions</string>
+    <string name="new_articles">New articles</string>
+    <string name="new_articles_notification">New articles</string>
+    <string name="updated_subscriptions">Updated %1$d subscriptions: %2$s</string>
 </resources>
