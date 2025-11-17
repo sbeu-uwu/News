@@ -1,6 +1,7 @@
 package com.sbeu.news.domain.repository
 
 import com.sbeu.news.domain.entity.Article
+import com.sbeu.news.domain.entity.RefreshConfig
 import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
@@ -16,6 +17,8 @@ interface NewsRepository {
     suspend fun updateArticlesForAllSubscriptions()
 
     fun getArticlesByTopics(topics: List<String>): Flow<List<Article>>
+
+    fun startBackgroundRefresh(refreshConfig: RefreshConfig)
 
     suspend fun clearAllArticles(topics: List<String>)
 }

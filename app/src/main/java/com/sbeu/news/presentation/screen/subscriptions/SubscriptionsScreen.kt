@@ -330,7 +330,7 @@ private fun ArticleCard(
             )
             Spacer(Modifier.height(8.dp))
         }
-
+        Spacer(Modifier.height(8.dp))
         Text(
             modifier = Modifier.padding(horizontal = 16.dp),
             text = article.title,

@@ -7,7 +7,9 @@ import com.sbeu.news.data.local.NewsDao
 import com.sbeu.news.data.local.NewsDatabase
 import com.sbeu.news.data.remote.NewsApiService
 import com.sbeu.news.data.repository.NewsRepositoryImpl
+import com.sbeu.news.data.repository.SettingsRepositoryImpl
 import com.sbeu.news.domain.repository.NewsRepository
+import com.sbeu.news.domain.repository.SettingsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -25,6 +27,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 interface DataModule {
+
+    @Singleton
+    @Binds
+    fun bindSettingsRepository(
+        impl: SettingsRepositoryImpl
+    ): SettingsRepository
 
     @Singleton
     @Binds
