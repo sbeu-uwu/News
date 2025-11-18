@@ -12,9 +12,11 @@ import com.sbeu.news.data.local.NewsDao
 import com.sbeu.news.data.local.SubscriptionDbModel
 import com.sbeu.news.data.mapper.toDbModels
 import com.sbeu.news.data.mapper.toEntities
+import com.sbeu.news.data.mapper.toQueryParam
 import com.sbeu.news.data.mapper.toRefreshConfig
 import com.sbeu.news.data.remote.NewsApiService
 import com.sbeu.news.domain.entity.Article
+import com.sbeu.news.domain.entity.Language
 import com.sbeu.news.domain.entity.RefreshConfig
 import com.sbeu.news.domain.repository.NewsRepository
 import com.sbeu.news.domain.repository.SettingsRepository
@@ -47,14 +49,15 @@ class NewsRepositoryImpl @Inject constructor(
         return newsDao.addSubscription(SubscriptionDbModel(topic))
     }
 
-    override suspend fun updateArticlesForTopic(topic: String) {
-        val articles = loadArticles(topic)
-        newsDao.addArticles(articles)
+    override suspend fun updateArticlesForTopic(topic: String, language: Language): Boolean {
+        val articles = loadArticles(topic, language)
+        val ids = newsDao.addArticles(articles)
+        return ids.any { it != -1L }
     }
 
-    private suspend fun loadArticles(topic: String): List<ArticleDbModel> {
+    private suspend fun loadArticles(topic: String, language: Language): List<ArticleDbModel> {
         return try {
-            newsApiService.loadArticles(topic).toDbModels(topic)
+            newsApiService.loadArticles(topic, language.toQueryParam()).toDbModels(topic)
         } catch (e: Exception) {
             if (e is CancellationException) {
                 throw e
@@ -68,13 +71,16 @@ class NewsRepositoryImpl @Inject constructor(
         newsDao.deleteSubscription(SubscriptionDbModel(topic))
     }
 
-    override suspend fun updateArticlesForAllSubscriptions(): List<String> {
+    override suspend fun updateArticlesForAllSubscriptions(language: Language): List<String> {
         val updatedTopics = mutableListOf<String>()
         val subscriptions = newsDao.getAllSubscriptions().first()
         coroutineScope {
             subscriptions.forEach {
                 launch {
-                    updateArticlesForTopic(it.topic)
+                    val updated = updateArticlesForTopic(it.topic, language)
+                    if (updated) {
+                        updatedTopics.add(it.topic)
+                    }
                 }
             }
         }
