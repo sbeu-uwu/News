@@ -5,7 +5,7 @@ import retrofit2.http.Query
 
 interface NewsApiService {
 
-    @GET("v2/everything?apiKey=bde3efadc0994ad0a18dd5df6415c545")
+    @GET("v2/everything?apiKey=")
     suspend fun loadArticles(
         @Query("q") topic: String,
 //        @Query("language") language: String
