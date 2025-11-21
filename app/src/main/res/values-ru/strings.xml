@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">News</string>
+    <string name="news">Новости</string>
+    <string name="refresh_articles">Обновить статьи</string>
+    <string name="clear_articles">Очистить статьи</string>
+    <string name="settings">Настройки</string>
+    <string name="remove_subscription">Удалить подписку</string>
+    <string name="add_subscription">Добавить подписку</string>
+    <string name="add">Добавить</string>
+    <string name="subscriptions">Подписки (%1$d)</string>
+    <string name="no_subscriptions">Нет подписок</string>
+    <string name="image_for_article">Изображение для статьи %1$s</string>
+    <string name="share_article">Поделиться статьёй %1$s</string>
+    <string name="open_full_article">Открыть полную статью %1$s</string>
+    <string name="articles">Статьи (%1$d)</string>
+    <string name="no_articles_for_selected_subscriptions">Нет статей для выбраных подписок</string>
+    <string name="new_articles">Новые статьи</string>
+    <string name="new_articles_notification">Новые статьи</string>
+    <string name="updated_subscriptions">Обновлено %1$d подписок: %2$s</string>
+    <string name="navigate_back_button">Навигация назад</string>
+    <string name="navigate_back_to_main_screen">Навигация назад на главный экран</string>
+    <string name="search_language">Язык статей</string>
+    <string name="select_language_for_news_search">Выберите язык для поиска статей</string>
+    <string name="update_interval">Интервал обновления</string>
+    <string name="how_often_to_update_news">Как часто обновлять новости</string>
+    <string name="show_notifications_about_new_articles">Показывать уведомления о новых статьях</string>
+    <string name="update_only_via_wi_fi">Обновлять только через Wi-Fi</string>
+    <string name="save_mobile_data">Экономия траффика</string>
+    <string name="notifications">Уведомления</string>
+</resources>

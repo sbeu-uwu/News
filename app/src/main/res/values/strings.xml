@@ -27,8 +27,8 @@
     <string name="update_only_via_wi_fi">Update only via Wi-Fi</string>
     <string name="save_mobile_data">Save mobile data</string>
     <string name="notifications">Notifications</string>
-    <string name="english">English</string>
-    <string name="russian">Русский</string>
-    <string name="francais">Francais</string>
-    <string name="deutsch">Deutsch</string>
+    <string name="english" translatable="false">English</string>
+    <string name="russian" translatable="false">Русский</string>
+    <string name="francais" translatable="false">Francais</string>
+    <string name="deutsch" translatable="false">Deutsch</string>
 </resources>
