@@ -23,4 +23,4 @@
 
 ## Скачать APK
 
-* **[Скачать приложение]()**
+* **[Скачать приложение](https://github.com/sbeu-uwu/News/releases/download/release/News.apk)**
