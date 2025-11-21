@@ -17,4 +17,18 @@
     <string name="new_articles">New articles</string>
     <string name="new_articles_notification">New articles</string>
     <string name="updated_subscriptions">Updated %1$d subscriptions: %2$s</string>
+    <string name="navigate_back_button">Navigate back button</string>
+    <string name="navigate_back_to_main_screen">Navigate back to main screen</string>
+    <string name="search_language">Search language</string>
+    <string name="select_language_for_news_search">Select language for news search</string>
+    <string name="update_interval">Update interval</string>
+    <string name="how_often_to_update_news">How often to update news</string>
+    <string name="show_notifications_about_new_articles">Show notifications about new articles</string>
+    <string name="update_only_via_wi_fi">Update only via Wi-Fi</string>
+    <string name="save_mobile_data">Save mobile data</string>
+    <string name="notifications">Notifications</string>
+    <string name="english">English</string>
+    <string name="russian">Русский</string>
+    <string name="francais">Francais</string>
+    <string name="deutsch">Deutsch</string>
 </resources>

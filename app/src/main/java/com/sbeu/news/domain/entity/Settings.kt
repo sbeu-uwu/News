@@ -18,7 +18,7 @@ data class Settings(
 
 enum class Language {
 
-    ENGLISH, RUSSIAN
+    ENGLISH, RUSSIAN, GERMAN, FRENCH
 }
 
 enum class Interval(val minutes: Int) {

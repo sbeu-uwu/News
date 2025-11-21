@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,6 +9,14 @@ plugins {
     id("com.google.dagger.hilt.android")
 
 }
+
+private val keystorePropertiesFile = rootProject.file("keystore.properties")
+private val keystoreProperties = keystorePropertiesFile.inputStream().use { inputStream ->
+    Properties().apply {
+        load(inputStream)
+    }
+}
+private val apiKey = keystoreProperties.getProperty("NEWS_API_KEY")
 
 android {
     namespace = "com.sbeu.news"
@@ -20,6 +30,7 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "NEWS_API_KEY", apiKey)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,6 +53,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
